@@ -18,9 +18,22 @@
             src="https://unpkg.com/react-dom@16/umd/react-dom.development.js">
         </script>
         <script type="text/babel">
-            const appRoot = document.querySelector('#application-root');
-            const helloWorldH1 = React.createElement('h1', null, 'Hello, world!');
-            ReactDOM.render(helloWorldH1, appRoot);
+
+            function App(props) {
+                console.log(props)
+                return (
+                    <header>
+                        {props.children}
+                    </header>
+                );
+            }
+
+            ReactDOM.render(
+                <App className='my-class'>
+                    <h1>Current Page Title!</h1>
+                 </App>,
+                document.querySelector('#application-root')
+            );
         </script>
     </body>
 </html>
